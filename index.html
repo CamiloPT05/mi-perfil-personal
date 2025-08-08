@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camilo Paredes - Experto en Sistemas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 6s ease-in-out infinite',
+            'bounce-slow': 'bounce 3s infinite',
+            'fade-in-up': 'fadeInUp 1s ease-out',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .hero-gradient {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+    }
+    .service-card:hover .service-icon {
+      transform: rotateY(180deg) scale(1.2);
+    }
+    .parallax-bg {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .glow-on-hover {
+      transition: all 0.3s ease;
+    }
+    .glow-on-hover:hover {
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .carousel-item {
+      display: none;
+      animation: fadeIn 0.8s;
+    }
+    .carousel-item.active {
+      display: block;
+    }
+    .floating-shapes::before, .floating-shapes::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 0;
+    }
+    .floating-shapes::before {
+      width: 150px;
+      height: 150px;
+      top: 10%;
+      left: 5%;
+      animation: float 8s ease-in-out infinite;
+    }
+    .floating-shapes::after {
+      width: 100px;
+      height: 100px;
+      bottom: 15%;
+      right: 5%;
+      animation: float 7s ease-in-out infinite reverse;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans overflow-x-hidden">
+  <div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-0 left-0 w-64 h-64 bg-blue-400 rounded-full opacity-10 filter blur-3xl animate-float"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-400 rounded-full opacity-10 filter blur-3xl animate-float animation-delay-2000"></div>
+  </div>
+  <header class="hero-gradient text-white text-center relative overflow-hidden py-20 md:py-28">
+    <div class="floating-shapes"></div>
+    <div class="max-w-6xl mx-auto px-4 relative z-10 animate__animated animate__fadeIn">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+        <div class="w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-white overflow-hidden shadow-2xl glow-on-hover animate__animated animate__pulse animate__infinite animate__slower">
+          <img src="img/WhatsApp Image 2025-08-07 at 5.30.57 PM.jpeg"
+               alt="Foto de Camilo Paredes" 
+               class="w-full h-full object-cover">
+        </div>
+        <div class="text-center md:text-left">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4 animate__animated animate__fadeInUp">
+            <span class="text-gradient">Camilo Paredes</span>
+          </h1>
+          <p class="text-xl md:text-2xl mb-6 text-blue-100 animate__animated animate__fadeInUp animate__delay-1s">
+            Técnico en Sistemas | Desarrollador Web Jr
+          </p>
+          <div class="animate__animated animate__fadeInUp animate__delay-2s">
+            <a href="#contacto" class="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg transform transition hover:scale-110 hover:shadow-xl">
+              Contáctame <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-100 to-transparent"></div>
+  </header>
+
+  
+  <section class="py-16 bg-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate__animated animate__fadeIn">
+        <span class="text-gradient">Proyectos Destacados</span>
+      </h2>
+      
+      <div class="relative overflow-hidden rounded-2xl shadow-2xl h-96 md:h-[500px] animate__animated animate__fadeIn animate__delay-1s">
+       
+        <div class="carousel-item active h-full">
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div class="relative z-10 text-center text-white p-8 max-w-4xl">
+              <h3 class="text-3xl md:text-4xl font-bold mb-6">Plataforma </h3>
+              <p class="text-xl mb-8">Desarrollo completo de tienda online con carrito de compras, pasarela de pagos y panel administrativo.</p>
+              <div class="flex flex-wrap justify-center gap-4">
+                <span class="inline-block bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-2 rounded-full font-semibold border border-white border-opacity-30">React</span>
+                <span class="inline-block bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-2 rounded-full font-semibold border border-white border-opacity-30">Node.js</span>
+                <span class="inline-block bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-2 rounded-full font-semibold border border-white border-opacity-30">MongoDB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-item h-full">
+          <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80');">
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div class="relative z-10 text-center text-white p-8 max-w-4xl">
+              <h3 class="text-3xl md:text-4xl font-bold mb-6">Sistema de Gestión Empresarial</h3>
+              <p class="text-xl mb-8">Software personalizado para automatización de procesos internos con reportes en tiempo real.</p>
+              <div class="flex flex-wrap justify-center gap-4">
+                <span class="inline-block bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-2 rounded-full font-semibold border border-white border-opacity-30">Vue.js</span>
+                <span class="inline-block bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-2 rounded-full font-semibold border border-white border-opacity-30">Laravel</span>
+                <span class="inline-block bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-2 rounded-full font-semibold border border-white border-opacity-30">MySQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-item h-full">
+          <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-pink-600 flex items-center justify-center parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80');">
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div class="relative z-10 text-center text-white p-8 max-w-4xl">
+              <h3 class="text-3xl md:text-4xl font-bold mb-6">Aplicación Móvil Educativa</h3>
+              <p class="text-xl mb-8">Desarrollo de app multiplataforma con contenido interactivo y seguimiento de progreso.</p>
+              <div class="flex flex-wrap justify-center gap-4">
+                <span class="inline-block bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-2 rounded-full font-semibold border border-white border-opacity-30">React Native</span>
+                <span class="inline-block bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-2 rounded-full font-semibold border border-white border-opacity-30">Firebase</span>
+                <span class="inline-block bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-2 rounded-full font-semibold border border-white border-opacity-30">Redux</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button id="prevBtn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 text-white p-3 rounded-full hover:bg-opacity-50 transition z-10 backdrop-blur-sm">
+          <i class="fas fa-chevron-left text-2xl"></i>
+        </button>
+        <button id="nextBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 text-white p-3 rounded-full hover:bg-opacity-50 transition z-10 backdrop-blur-sm">
+          <i class="fas fa-chevron-right text-2xl"></i>
+        </button>
+        <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3">
+          <span class="carousel-indicator w-4 h-4 bg-white rounded-full cursor-pointer opacity-50 active transition hover:opacity-100"></span>
+          <span class="carousel-indicator w-4 h-4 bg-white rounded-full cursor-pointer opacity-50 transition hover:opacity-100"></span>
+          <span class="carousel-indicator w-4 h-4 bg-white rounded-full cursor-pointer opacity-50 transition hover:opacity-100"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate__animated animate__fadeIn">
+        <span class="text-gradient">Evidencias de Mis Servicios</span>
+      </h2>
+      <div class="relative group">
+        <div id="evidenceCarousel" class="overflow-hidden relative rounded-2xl shadow-xl">
+          <div class="flex transition-transform duration-500 ease-in-out">
+            <div class="min-w-full">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+                <div class="h-64 md:h-80 overflow-hidden relative group">
+                 <img src="img/Mantenimiento1.jpeg" alt="#">
+                       alt="Soporte técnico" 
+                       class="w-full h-full object-cover transition duration-700 ease-in-out group-hover:scale-110">
+                  <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                    <span class="text-white text-lg font-bold bg-blue-600 bg-opacity-90 px-4 py-2 rounded-lg">Mantenimiento</span>
+                  </div>
+                </div>
+                <div class="h-64 md:h-80 overflow-hidden relative group">
+                  <img src="img/Desarrolloweb3.jpg" alt="#">
+                       alt="Desarrollo web" 
+                       class="w-full h-full object-cover transition duration-700 ease-in-out group-hover:scale-110">
+                  <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                    <span class="text-white text-lg font-bold bg-purple-600 bg-opacity-90 px-4 py-2 rounded-lg">Desarrollo Web</span>
+                  </div>
+                </div>
+                <div class="h-64 md:h-80 overflow-hidden relative group">
+                 <img src="img/Optimización2.jpeg" alt="#">
+                       alt="Optimización" 
+                       class="w-full h-full object-cover transition duration-700 ease-in-out group-hover:scale-110">
+                  <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                    <span class="text-white text-lg font-bold bg-green-600 bg-opacity-90 px-4 py-2 rounded-lg">Optimización</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+                   
+                <div class="h-64 md:h-80 overflow-hidden relative group">
+                  <img src="https://images.unsplash.com/photo-1581092921461-39b2f2aa99b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                       alt="Capacitación" 
+                       class="w-full h-full object-cover transition duration-700 ease-in-out group-hover:scale-110">
+                  <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                    <span class="text-white text-lg font-bold bg-yellow-600 bg-opacity-90 px-4 py-2 rounded-lg">Capacitación</span>
+                  </div>
+                </div>
+                <div class="h-64 md:h-80 overflow-hidden relative group">
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                       alt="Mantenimiento" 
+                       class="w-full h-full object-cover transition duration-700 ease-in-out group-hover:scale-110">
+                  <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                    <span class="text-white text-lg font-bold bg-indigo-600 bg-opacity-90 px-4 py-2 rounded-lg">Mantenimiento</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <button id="prevEvidence" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 text-gray-800 p-3 rounded-full hover:bg-opacity-100 transition z-10 shadow-lg opacity-0 group-hover:opacity-100">
+          <i class="fas fa-chevron-left text-xl"></i>
+        </button>
+        <button id="nextEvidence" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 text-gray-800 p-3 rounded-full hover:bg-opacity-100 transition z-10 shadow-lg opacity-0 group-hover:opacity-100">
+          <i class="fas fa-chevron-right text-xl"></i>
+        </button>
+      </div>
+      
+      <div class="flex justify-center mt-8 space-x-2">
+        <span class="evidence-indicator w-3 h-3 bg-blue-600 rounded-full cursor-pointer opacity-70 active"></span>
+        <span class="evidence-indicator w-3 h-3 bg-blue-600 rounded-full cursor-pointer opacity-70"></span>
+      </div>
+    </div>
+  </section>
+
+ 
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate__animated animate__fadeIn">
+        <span class="text-gradient">Mis Servicios Especializados</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+       
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:-translate-y-4 hover:shadow-2xl group perspective-1000">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/Desarroloweb2.jpeg" alt="">
+                 alt="Diseño Web" 
+                 class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-blue-600 bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+              <div class="service-icon text-white text-5xl transform transition duration-1000">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Diseño Web Premium</h3>
+            <p class="text-gray-600 mb-4">Creación de sitios web modernos, rápidos y optimizados para conversiones.</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Diseño responsivo</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Optimización SEO</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> UI/UX profesional</li>
+            </ul>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:-translate-y-4 hover:shadow-2xl group perspective-1000">
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Desarrollo Frontend" 
+                 class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-purple-600 bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+              <div class="service-icon text-white text-5xl transform transition duration-1000">
+                <i class="fas fa-code"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Desarrollo Frontend Avanzado</h3>
+            <p class="text-gray-600 mb-4">Interfaces dinámicas y reactivas con las últimas tecnologías web.</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center"><i class="fas fa-check-circle text-purple-500 mr-2"></i> React/Vue/Angular</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-purple-500 mr-2"></i> Tailwind CSS</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-purple-500 mr-2"></i> APIs REST</li>
+            </ul>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:-translate-y-4 hover:shadow-2xl group perspective-1000">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/Mantenimiento2.jpeg" alt="">
+                 alt="Mantenimiento" 
+                 class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-green-600 bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+              <div class="service-icon text-white text-5xl transform transition duration-1000">
+                <i class="fas fa-server"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Mantenimiento Integral</h3>
+            <p class="text-gray-600 mb-4">Soporte continuo para garantizar el máximo rendimiento de tus sistemas.</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Actualizaciones</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Copias de seguridad</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Monitoreo 24/7</li>
+            </ul>
+          </div>
+        </div>
+        
+       
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:-translate-y-4 hover:shadow-2xl group perspective-1000">
+          <div class="relative h-48 overflow-hidden">
+            <img src="img/tecnico-masculino-trabajando-en-equipo-roto.jpg" alt="">
+                 alt="Soporte Técnico" 
+                 class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-red-600 bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+              <div class="service-icon text-white text-5xl transform transition duration-1000">
+                <i class="fas fa-headset"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Soporte Técnico Especializado</h3>
+            <p class="text-gray-600 mb-4">Soluciones rápidas y efectivas para problemas técnicos complejos.</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-2"></i> Remoto y presencial</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-2"></i> Hardware/Software</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-2"></i> Respuesta inmediata</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="animate__animated animate__fadeInUp">
+          <div class="text-4xl md:text-5xl font-bold mb-2 animate-count" data-target="5">0</div>
+          <div class="text-lg">Proyectos Completados</div>
+        </div>
+        <div class="animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="text-4xl md:text-5xl font-bold mb-2 animate-count" data-target="4">0</div>
+          <div class="text-lg">Clientes Satisfechos</div>
+        </div>
+        <div class="animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="text-4xl md:text-5xl font-bold mb-2 animate-count" data-target="1">0</div>
+          <div class="text-lg">Años de Experiencia</div>
+        </div>
+        <div class="animate__animated animate__fadeInUp animate__delay-3s">
+          <div class="text-4xl md:text-5xl font-bold mb-2 animate-count" data-target="0">0</div>
+          <div class="text-lg">Premios Obtenidos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-gray-100" id="contacto">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate__animated animate__fadeIn">
+        <span class="text-gradient">Trabajemos Juntos</span>
+      </h2>
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLSfT5IMDPkj3t1r2T9Q28kiPet6bdQe5wutTxKrntk7QILUqcg/formResponse"
+      method="post" target="_blank">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="contact-form bg-white bg-opacity-80 backdrop-blur-sm rounded-2xl shadow-xl p-8 lg:p-12 transform transition hover:scale-[1.01]">
+          <form class="space-y-6">
+            <div class="animate__animated animate__fadeInLeft">
+              <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
+              <input type="text" id="nombre" name="entry.134848925" 
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white bg-opacity-50"
+                     placeholder="¿Cómo te llamas?">
+            </div>
+            
+            <div class="animate__animated animate__fadeInLeft animate__delay-1s">
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
+              <input type="email" id="email" name="entry.26717504" 
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white bg-opacity-50"
+                     placeholder="tu@email.com">
+            </div>
+            
+            <div class="animate__animated animate__fadeInLeft animate__delay-2s">
+              <label for="servicio" class="block text-sm font-medium text-gray-700 mb-1">Servicio de Interés</label>
+              <select id="servicio" name="entry.289908734" 
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white bg-opacity-50">
+                <option value="">¿Qué servicio necesitas?</option>
+                <option value="diseno">Diseño Web</option>
+                <option value="desarrollo">Desarrollo Frontend</option>
+                <option value="mantenimiento">Mantenimiento</option>
+                <option value="soporte">Soporte Técnico</option>
+                <option value="otros">Otros servicios</option>
+              </select>
+            </div>
+            
+            <div class="animate__animated animate__fadeInLeft animate__delay-3s">
+              <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+              <textarea id="mensaje" name="entry.504575086" rows="4" 
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white bg-opacity-50"
+                        placeholder="Cuéntame sobre tu proyecto..."></textarea>
+            </div>
+            
+            <div class="animate__animated animate__fadeInUp animate__delay-4s">
+              <button type="submit" 
+                      class="w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-4 px-6 rounded-lg transition transform hover:scale-105 shadow-lg">
+                Enviar Mensaje <i class="fas fa-paper-plane ml-2"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="animate__animated animate__fadeInRight">
+          <div class="bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-2xl shadow-2xl overflow-hidden">
+            <div class="p-8 md:p-12">
+              <h3 class="text-2xl font-bold mb-6">¿Por qué trabajar conmigo?</h3>
+              <ul class="space-y-6">
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 bg-blue-400 bg-opacity-30 p-2 rounded-full mr-4">
+                    <i class="fas fa-check-circle text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-lg mb-1">Experiencia Comprobada</h4>
+                    <p class="text-blue-100">Más de 1 años resolviendo problemas tecnológicos complejos.</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 bg-blue-400 bg-opacity-30 p-2 rounded-full mr-4">
+                    <i class="fas fa-bolt text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-lg mb-1">Respuesta Rápida</h4>
+                    <p class="text-blue-100">Siempre disponible para atender emergencias técnicas.</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 bg-blue-400 bg-opacity-30 p-2 rounded-full mr-4">
+                    <i class="fas fa-lock text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-lg mb-1">Seguridad Garantizada</h4>
+                    <p class="text-blue-100">Protocolos de seguridad avanzados para proteger tus datos.</p>
+                  </div>
+                </li>
+              </ul>
+              
+              <div class="mt-10 pt-6 border-t border-blue-400 border-opacity-30">
+                <h4 class="font-semibold text-lg mb-4">También puedes contactarme por:</h4>
+                <div class="flex flex-wrap gap-4">
+                  <a href="https://wa.link/jbea9k" class="w-12 h-12 bg-white bg-opacity-20 text-white rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                  </a>
+                  <a href="#" class="w-12 h-12 bg-white bg-opacity-20 text-white rounded-full flex items-center justify-center hover:bg-opacity-30 transition">
+                    <i class="fab fa-telegram text-xl"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 animate__animated animate__fadeIn">
+        <span class="text-gradient">Lo que dicen mis clientes</span>
+      </h2>
+      
+      <div class="relative overflow-hidden rounded-2xl shadow-lg bg-gray-50 p-8">
+        <div class="testimonial-item active animate__animated animate__fadeIn">
+          <div class="flex items-center mb-6">
+            <img src="https://randomuser.me/api/portraits/women/43.jpg" 
+                 alt="Cliente satisfecho" 
+                 class="w-16 h-16 rounded-full object-cover border-4 border-blue-200">
+            <div class="ml-4">
+              <h4 class="font-bold text-lg">María González</h4>
+              <p class="text-blue-600">Cliente ejemplo</p>
+            </div>
+          </div>
+          <p class="text-gray-700 text-lg italic mb-6">"Camilo transformó por completo nuestro sitio web. No solo es visualmente impresionante, sino que también ha aumentado nuestras conversiones en un 40%. Su atención al detalle y profesionalismo son excepcionales."</p>
+          <div class="flex">
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+          </div>
+        </div>
+        
+        <div class="testimonial-item hidden">
+          <div class="flex items-center mb-6">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                 alt="Cliente satisfecho" 
+                 class="w-16 h-16 rounded-full object-cover border-4 border-blue-200">
+            <div class="ml-4">
+              <h4 class="font-bold text-lg">Carlos Mendoza</h4>
+              <p class="text-blue-600">Cliente ejemplo</p>
+            </div>
+          </div>
+          <p class="text-gray-700 text-lg italic mb-6">"Contratamos a Camilo para el mantenimiento de nuestros sistemas y ha sido la mejor decisión. Responde rápidamente a cualquier incidencia y sus soluciones son siempre efectivas. ¡Altamente recomendado!"</p>
+          <div class="flex">
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+          </div>
+        </div>
+        
+        <div class="testimonial-item hidden">
+          <div class="flex items-center mb-6">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" 
+                 alt="Cliente satisfecho" 
+                 class="w-16 h-16 rounded-full object-cover border-4 border-blue-200">
+            <div class="ml-4">
+              <h4 class="font-bold text-lg">Laura Ramírez</h4>
+              <p class="text-blue-600">Cliente ejemplo</p>
+            </div>
+          </div>
+          <p class="text-gray-700 text-lg italic mb-6">"Trabajar con Camilo ha sido una experiencia increíble. Su conocimiento técnico es amplio y siempre está actualizado con las últimas tecnologías. Nuestra aplicación móvil superó todas las expectativas gracias a su trabajo."</p>
+          <div class="flex">
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star-half-alt text-yellow-400"></i>
+          </div>
+        </div>
+        
+        <div class="flex justify-center mt-8 space-x-2">
+          <span class="testimonial-indicator w-3 h-3 bg-blue-600 rounded-full cursor-pointer opacity-70 active"></span>
+          <span class="testimonial-indicator w-3 h-3 bg-blue-600 rounded-full cursor-pointer opacity-70"></span>
+          <span class="testimonial-indicator w-3 h-3 bg-blue-600 rounded-full cursor-pointer opacity-70"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-gray-900 text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div class="md:col-span-2">
+          <h3 class="text-2xl font-bold mb-6 flex items-center">
+            <span class="bg-blue-600 w-8 h-8 rounded-full flex items-center justify-center mr-3">C</span>
+            Camilo Paredes
+          </h3>
+          <p class="text-gray-400 mb-6">Especialista en soluciones tecnológicas con más de una década de experiencia ayudando a empresas a alcanzar su máximo potencial digital.</p>
+          <div class="flex space-x-4">
+            <a href="https://www.linkedin.com/" class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+           <a href="https://x.com/?lang=es" class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-700 transition">
+            <i class="fab fa-x-twitter"></i>
+            <span>X</span>
+        </a>
+            <a href="https://github.com/CamiloPT05" class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-700 transition">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.instagram.com/" class="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-6">Servicios</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center">
+              <i class="fas fa-chevron-right text-xs text-blue-600 mr-2"></i> Diseño Web
+            </a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center">
+              <i class="fas fa-chevron-right text-xs text-blue-600 mr-2"></i> Desarrollo Frontend
+            </a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center">
+              <i class="fas fa-chevron-right text-xs text-blue-600 mr-2"></i> Mantenimiento
+            </a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center">
+              <i class="fas fa-chevron-right text-xs text-blue-600 mr-2"></i> Soporte Técnico
+            </a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-6">Contacto Rápido</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-envelope text-blue-600 mt-1 mr-3"></i>
+              <span class="text-gray-400">paredescamilo314@gmail.com</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt text-blue-600 mt-1 mr-3"></i>
+              <span class="text-gray-400">+57 3012311675</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt text-blue-600 mt-1 mr-3"></i>
+              <span class="text-gray-400">Sincelejo, Colombia</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2023 Camilo Paredes. Todos los derechos reservados.</p>
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white transition text-sm">Política de Privacidad</a>
+          <a href="#" class="text-gray-400 hover:text-white transition text-sm">Términos de Servicio</a>
+          <a href="#" class="text-gray-400 hover:text-white transition text-sm">Mapa del Sitio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <a href="https://wa.link/jbea9k" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center shadow-xl z-50 animate-bounce-slow hover:bg-green-600 transition">
+    <i class="fab fa-whatsapp text-3xl"></i>
+  </a>
+
+  
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+     
+      const mainItems = document.querySelectorAll('.carousel-item');
+      const mainIndicators = document.querySelectorAll('.carousel-indicator');
+      let mainCurrentIndex = 0;
+      let mainInterval;
+      
+      function showMainSlide(index) {
+        mainItems.forEach(item => item.classList.remove('active'));
+        mainIndicators.forEach(indicator => indicator.classList.remove('active'));
+        
+        mainItems[index].classList.add('active');
+        mainIndicators[index].classList.add('active');
+        mainCurrentIndex = index;
+      }
+      
+      function nextMainSlide() {
+        let newIndex = (mainCurrentIndex + 1) % mainItems.length;
+        showMainSlide(newIndex);
+      }
+      
+      function prevMainSlide() {
+        let newIndex = (mainCurrentIndex - 1 + mainItems.length) % mainItems.length;
+        showMainSlide(newIndex);
+      }
+      
+      function startMainInterval() {
+        mainInterval = setInterval(nextMainSlide, 6000);
+      }
+      
+      document.getElementById('prevBtn').addEventListener('click', () => {
+        prevMainSlide();
+        clearInterval(mainInterval);
+        startMainInterval();
+      });
+      
+      document.getElementById('nextBtn').addEventListener('click', () => {
+        nextMainSlide();
+        clearInterval(mainInterval);
+        startMainInterval();
+      });
+      
+      mainIndicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          showMainSlide(index);
+          clearInterval(mainInterval);
+          startMainInterval();
+        });
+      });
+      
+      startMainInterval();
+      
+    
+      const evidenceCarousel = document.getElementById('evidenceCarousel');
+      const evidenceItems = evidenceCarousel.querySelector('.flex');
+      const evidenceIndicators = document.querySelectorAll('.evidence-indicator');
+      let evidenceCurrentIndex = 0;
+      const evidenceItemCount = document.querySelectorAll('#evidenceCarousel > .flex > div').length;
+      
+      function showEvidenceSlide(index) {
+        evidenceCurrentIndex = index;
+        evidenceItems.style.transform = `translateX(-${index * 100}%)`;
+        
+        evidenceIndicators.forEach((indicator, i) => {
+          indicator.classList.toggle('active', i === index);
+          indicator.classList.toggle('opacity-70', i !== index);
+        });
+      }
+      
+      document.getElementById('nextEvidence').addEventListener('click', () => {
+        let newIndex = (evidenceCurrentIndex + 1) % evidenceItemCount;
+        showEvidenceSlide(newIndex);
+      });
+      
+      document.getElementById('prevEvidence').addEventListener('click', () => {
+        let newIndex = (evidenceCurrentIndex - 1 + evidenceItemCount) % evidenceItemCount;
+        showEvidenceSlide(newIndex);
+      });
+      
+      evidenceIndicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          showEvidenceSlide(index);
+        });
+      });
+      
+
+      const testimonialItems = document.querySelectorAll('.testimonial-item');
+      const testimonialIndicators = document.querySelectorAll('.testimonial-indicator');
+      let testimonialCurrentIndex = 0;
+      let testimonialInterval;
+      
+      function showTestimonial(index) {
+        testimonialItems.forEach(item => item.classList.add('hidden'));
+        testimonialIndicators.forEach(indicator => indicator.classList.remove('active'));
+        
+        testimonialItems[index].classList.remove('hidden');
+        testimonialItems[index].classList.add('animate__fadeIn');
+        testimonialIndicators[index].classList.add('active');
+        testimonialCurrentIndex = index;
+      }
+      
+      function nextTestimonial() {
+        let newIndex = (testimonialCurrentIndex + 1) % testimonialItems.length;
+        showTestimonial(newIndex);
+      }
+      
+      function startTestimonialInterval() {
+        testimonialInterval = setInterval(nextTestimonial, 8000);
+      }
+      
+      testimonialIndicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          showTestimonial(index);
+          clearInterval(testimonialInterval);
+          startTestimonialInterval();
+        });
+      });
+      
+      startTestimonialInterval();
+      
+      
+      const counters = document.querySelectorAll('.animate-count');
+      const speed = 200;
+      
+      function animateCounters() {
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-target');
+          const count = +counter.innerText;
+          const increment = target / speed;
+          
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(animateCounters, 1);
+          } else {
+            counter.innerText = target;
+          }
+        });
+      }
+      
+     
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      counters.forEach(counter => {
+        observer.observe(counter);
+      });
+      
+     
+      window.addEventListener('scroll', function() {
+        const scrollPosition = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.parallax-bg');
+        
+        parallaxElements.forEach(element => {
+          element.style.backgroundPositionY = (scrollPosition * 0.5) + 'px';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
